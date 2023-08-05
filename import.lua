@@ -53,4 +53,4 @@ mlib = setmetatable({
 }, {
 	__index = callMetaTable,
 	__call = callMetaTable,
-})
+});

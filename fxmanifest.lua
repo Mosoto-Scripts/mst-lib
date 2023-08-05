@@ -4,7 +4,7 @@ lua54 'yes';
 
 author 'mosotoscripts.com';
 description 'Feature-rich FiveM library.';
-version '0.0.1';
+version '1.0.0';
 
 client_scripts {
     'core/rsc/**/client.lua',
@@ -22,4 +22,10 @@ shared_scripts {
     'core/rsc/**/shared/*.lua',
     'core/rsc/**/shared.lua'
 };
+
+files {
+    'import.lua',
+    'modules/**/client.lua',
+    'modules/**/shared.lua'
+}
 dependency 'ox_lib';
