@@ -31,7 +31,7 @@ local loadFramework = function()
         local chunk = assert(load(import, ('@@ox_core/%s'):format(file)));
         chunk();
     end if Config.FrameworkPrint then
-        print(('Framework: %s'):format(frameworkName));
+        mlib.debug(('Framework: %s'):format(frameworkName));
     end
 end
 

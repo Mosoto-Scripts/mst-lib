@@ -8,7 +8,7 @@ local showCustomTextUI = function(msg)
 end
 
 ---@param msg string
----@param type 'error' | 'success' | 'inform'
+---@param type 'error' | 'success' | 'info'
 ---@param title string?
 local customNotification = function(msg, type, title)
     -- Here you can add your custom notification export.
@@ -75,7 +75,7 @@ mlib.ui = {
         end
     end,
     ---@param msg string
-    ---@param type 'error' | 'success' | 'inform'
+    ---@param type 'error' | 'success' | 'info'
     ---@param title string?
     showNotify = function(msg, type, title)
         if Config.Notifications == 'ox' then
@@ -85,15 +85,15 @@ mlib.ui = {
                 type = type
             });
         elseif Config.Notifications == 'okok' then
-            local newType = type == 'inform' and 'info' or type;
-            exports['okokNotify']:Alert(title, msg, 5000, newType);
+            exports['okokNotify']:Alert(title, msg, 5000, type);
         elseif Config.Notifications == 'mythic' then
-            exports['mythic_notify']:DoHudText(type, msg, 5000);
+            local newType = type == 'info' and 'inform' or type;
+            exports['mythic_notify']:DoHudText(newType, msg, 5000);
         elseif Config.Notifications == 'framework' then
             if Config.Framework == 'ESX' then
                 Framework.ShowNotification(msg);
             elseif Config.Framework == 'QBCore' then
-                local newType = type == 'inform' and 'primary' or type;
+                local newType = type == 'info' and 'primary' or type;
                 Framework.Functions.Notify(msg, newType);
             elseif Config.Framework == 'OX' then
                 lib.notify({
