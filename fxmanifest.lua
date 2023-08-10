@@ -4,7 +4,7 @@ lua54 'yes';
 
 author 'mosotoscripts.com';
 description 'Feature-rich FiveM library.';
-version '1.0.1';
+version '1.1.0';
 
 client_scripts {
     'core/testing/**/client.lua',

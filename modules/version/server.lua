@@ -17,9 +17,11 @@ local updateMsg = GetConvar('mst:updateMsg', default);
 ---@param repo string?
 ---@param file string?
 local checkVersion = function(owner, repo, file)
-    local rsc = GetCurrentResourceName();
-    repo, file = repo or rsc, ('%s.txt'):format(file) or 'fxmanifest.lua';
-    local version = GetResourceMetadata(rsc, 'version', 0);
+    repo, file = repo or GetCurrentResourceName(), file and ('%s.txt'):format(file);
+    if not file then
+        error('You must specify a file name.')
+    end
+    local version = GetResourceMetadata(repo, 'version', 0);
     Wait(4000);
 
     ---@param cd string
@@ -36,12 +38,12 @@ local checkVersion = function(owner, repo, file)
         end result = json.decode(result:sub(1, -2));
         if ToNumber(result.version:gsub('%.', '')) > ToNumber(version:gsub('%.', '')) then
             local symbols = '^3';
-            for _ = 1, 26 + #rsc do
+            for _ = 1, 26 + #repo do
                 symbols = symbols..'=';
             end
             symbols = symbols..'^0';
             print(symbols);
-            print(updateMsg:format(rsc, version, result.version, result.notes));
+            print(updateMsg:format(repo, version, result.version, result.notes));
             print(symbols);
         end
     end, 'GET');
