@@ -4,12 +4,9 @@ lua54 'yes';
 
 author 'mosotoscripts.com';
 description 'Feature-rich FiveM library.';
-version '1.1.0';
 version '1.1.1';
 
 client_scripts {
-    'core/testing/**/client.lua',
-    'core/testing/**/client/*.lua'
     'core/testing/**/client.lua',
     'core/testing/**/client/*.lua'
 };
@@ -17,15 +14,11 @@ client_scripts {
 server_scripts {
     'core/testing/**/server.lua',
     'core/testing/**/server/*.lua'
-    'core/testing/**/server.lua',
-    'core/testing/**/server/*.lua'
 };
 
 shared_scripts {
     '@ox_lib/init.lua',
     'core/import.lua',
-    'core/testing/**/shared/*.lua',
-    'core/testing/**/shared.lua'
     'core/testing/**/shared/*.lua',
     'core/testing/**/shared.lua'
 };
