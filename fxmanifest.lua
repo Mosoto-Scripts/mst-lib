@@ -7,20 +7,20 @@ description 'Feature-rich FiveM library.';
 version '1.1.1';
 
 client_scripts {
-    'core/testing/**/client.lua',
-    'core/testing/**/client/*.lua'
+    'core/**/client.lua',
+    'core/**/client/*.lua'
 };
 
 server_scripts {
-    'core/testing/**/server.lua',
-    'core/testing/**/server/*.lua'
+    'core/**/server.lua',
+    'core/**/server/*.lua'
 };
 
 shared_scripts {
     '@ox_lib/init.lua',
     'core/import.lua',
-    'core/testing/**/shared/*.lua',
-    'core/testing/**/shared.lua'
+    'core/**/shared/*.lua',
+    'core/**/shared.lua'
 };
 
 files {
