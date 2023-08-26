@@ -2,22 +2,22 @@
 local maxTriggers, timeToClear = 10, 1;
 
 ---@type table
-local eventTriggers = {};
+local triggers = {};
 
----@param event string
-mlib.protect = function(event)
-    if eventTriggers[event] then
-        eventTriggers[event] += 1;
+---@param index string
+mlib.protect = function(index)
+    if triggers[index] then
+        triggers[index] += 1;
     else
-        eventTriggers[event] = 1;
+        triggers[index] = 1;
     end
 
     CreateThread(function()
         Wait(timeToClear * (60 * 1000));
-        eventTriggers[event] -= 1;
+        triggers[index] -= 1;
     end);
 
-    if eventTriggers[event] > maxTriggers then
-        error(('Event %s has been triggered too many times!'):format(event));
+    if triggers[index] > maxTriggers then
+        error(('index %s has been triggered too many times!'):format(index));
     end
 end
