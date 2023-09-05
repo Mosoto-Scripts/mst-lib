@@ -2,6 +2,7 @@
 ---@field model string | number
 ---@field coords vector3
 ---@field rotation number
+---@field net boolean?
 ---@field freeze boolean?
 
 ---@param data PedData
@@ -11,7 +12,7 @@ mlib.ped = function(data)
     local x, y, z, r = c.x, c.y, c.z, data.rotation;
     -- Ped Creation --
     lib.requestModel(model);
-    local ped = CreatePed(4, model, x, y, z, r, false, true);
+    local ped = CreatePed(4, model, x, y, z, r, data.net or false, true);
     SetBlockingOfNonTemporaryEvents(ped, true);
     SetPedDiesWhenInjured(ped, false);
     SetPedCanPlayAmbientAnims(ped, true);
