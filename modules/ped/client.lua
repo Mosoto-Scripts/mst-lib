@@ -2,6 +2,7 @@
 ---@field model string | number
 ---@field coords vector3
 ---@field rotation number
+---@field freeze boolean?
 
 ---@param data PedData
 ---@return table
@@ -16,7 +17,9 @@ mlib.ped = function(data)
     SetPedCanPlayAmbientAnims(ped, true);
     SetPedCanRagdollFromPlayerImpact(ped, false);
     SetEntityInvincible(ped, true);
-    FreezeEntityPosition(ped, true);
+    if data.freeze or data.freeze == nil then
+        FreezeEntityPosition(ped, true);
+    end
     SetModelAsNoLongerNeeded(model);
     -- Metatable --
     local pedTable = setmetatable({}, {__call = ped});
