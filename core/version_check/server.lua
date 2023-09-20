@@ -1,1 +1,0 @@
-lib.versionCheck('Mosoto-Scripts/mst-lib');
