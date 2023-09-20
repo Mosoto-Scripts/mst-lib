@@ -2,9 +2,9 @@ fx_version 'cerulean';
 game 'gta5';
 lua54 'yes';
 
-author 'gadget2';
-description 'Feature-rich FiveM library';
-version '1.0.0';
+author 'mosotoscripts.com';
+description 'Feature-rich FiveM library.';
+version '1.1.1';
 
 client_scripts {
     'core/**/client.lua',
