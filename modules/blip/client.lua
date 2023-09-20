@@ -1,3 +1,4 @@
+---@param self table
 local removeBlip = function(self)
     if DoesBlipExist(self.blip) then
         RemoveBlip(self.blip);
